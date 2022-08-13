@@ -14,11 +14,20 @@ const Counter = () => {
 
     }
     return (
-        <>
-            <div className={counter === 5 ? 'red' : ''}>{counter}</div>
-            <button className={counter === 5 ? 'black' : ''} onClick={()=>{inc()}}>icn</button>
-            <button className={counter === 0 ? 'black' : ''} onClick={()=>{reset()}}>reset</button>
-        </>
+        <div className='counter'>
+            <div className='number'><span className={counter === 5 ? 'red' : ''}>{counter}</span></div>
+            <div className='button-wrapper'>
+                <button className={counter === 5 ? 'active' : ''} onClick={() => {
+                    inc()
+                }}>icn
+                </button>
+                <button className={counter === 0 ? 'active' : ''} onClick={() => {
+                    reset()
+                }}>reset
+                </button>
+            </div>
+
+        </div>
     );
 };
 
