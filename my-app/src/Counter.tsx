@@ -1,26 +1,33 @@
-import React, {useState} from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import {Button} from "./Button";
 import s from './Button.module.css'
-import c from './App.module.css'
+import c from './Counter.module.css'
+
+type CounterType = {
+    state: { maxValue: number; minValue: number; }
+    currentValue: number
+    setCurrentValue: Dispatch<SetStateAction<number>>
+
+}
+
+const Counter:React.FC<CounterType> = ({state,currentValue,setCurrentValue}) => {
 
 
-const Counter = () => {
-    let [counter, setCounter] = useState<number>(0)
 
     const inc = () => {
-        if (counter < 5) {
-            setCounter(counter + 1)
+        if (currentValue < state.maxValue) {
+            setCurrentValue(currentValue + 1)
         }
     }
     const reset = () => {
-        setCounter( 0)
+        setCurrentValue(state.minValue)
     }
-    const disableInc = () => counter >= 5
-    const disableReset = () => counter === 0
+    const disableInc = () => currentValue >= state.maxValue
+    const disableReset = () => currentValue === state.minValue
 
     return (
         <div className={c.counter}>
-            <div className={c.number}><span className={counter === 5 ? c.red : ''}>{counter}</span></div>
+            <div className={c.number}><span className={currentValue === state.maxValue ? c.red : ''}>{currentValue}</span></div>
             <div className={c.button_wrapper}>
                 <Button styleButton={s.button} disable={disableInc()}  callBack={inc} title={'inc'}/>
                 <Button styleButton={s.button} disable={disableReset()} callBack={reset} title={'reset'}/>

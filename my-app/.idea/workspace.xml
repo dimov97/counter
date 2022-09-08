@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfad58a4-4bb2-4874-bec4-09c5c5b46e33" name="Changes" comment="css">
-      <change afterPath="$PROJECT_DIR$/src/App.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Button.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Setting.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Setting.tsx" afterDir="false" />
+    <list default="true" id="dfad58a4-4bb2-4874-bec4-09c5c5b46e33" name="Changes" comment="end counter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Counter.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Counter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Setting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Setting.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +56,7 @@
       <workItem from="1661266645961" duration="1199000" />
       <workItem from="1661270252585" duration="206000" />
       <workItem from="1662640362287" duration="99000" />
-      <workItem from="1662642570393" duration="3886000" />
+      <workItem from="1662642570393" duration="17944000" />
     </task>
     <task id="LOCAL-00001" summary="logic">
       <created>1660376653797</created>
@@ -76,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660381513800</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="end counter">
+      <created>1662646636721</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662646636722</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,7 +99,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="logic" />
     <MESSAGE value="css" />
-    <option name="LAST_COMMIT_MESSAGE" value="css" />
+    <MESSAGE value="end counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="end counter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

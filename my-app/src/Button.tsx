@@ -7,7 +7,7 @@ interface ButtonType {
     styleButton:string
 }
 
-export const Button: FC<ButtonType> = ({title, callBack,disable,styleButton}) => {
+export const Button: FC<ButtonType> = ({title, callBack,disable,styleButton,}) => {
     return (
         <button className={styleButton} disabled={disable} onClick={() => callBack()}>{title}</button>
     );
