@@ -1,0 +1,28 @@
+.counter {
+    display: inline-block;
+    border: 2px solid #6ae0fc;
+    border-radius: 5px;
+    padding: 10px;
+}
+.number {
+    text-align: center;
+    color: #2e323d;
+    background-color: #6ae0fc;
+    border-radius: 5px;
+    font-size: 40px;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    min-width: 150px;
+}
+.red {
+    color: #ef144c;
+}
+.button_wrapper {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #6ae0fc;
+    border-radius: 5px;
+    padding: 5px;
+
+}

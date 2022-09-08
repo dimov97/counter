@@ -1,39 +1,7 @@
-.counter {
-    display: inline-block;
-    border: 2px solid #6ae0fc;
-    border-radius: 5px;
-    padding: 10px;
-}
-.number {
-    text-align: center;
-    color: #2e323d;
-    background-color: #6ae0fc;
-    border-radius: 5px;
-    font-size: 40px;
-    padding: 20px 20px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    min-width: 150px;
-}
-.active {
-    opacity: .5;
-}
-.red {
-    color: #ef144c;
-}
-.button-wrapper {
+.App {
     display: flex;
-    justify-content: space-between;
-    border: 2px solid #6ae0fc;
-    border-radius: 5px;
-    padding: 5px;
-
-}
-button {
-    border: none;
-    background-color: #6ae0fc;
-    border-radius: 5px;
-    color: #2e323d;
-    padding: 2px 20px;
-    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    background-color: #2e323d;
+    height: 100vh;
 }
