@@ -1,52 +1,49 @@
 import React, {ChangeEvent, Dispatch, SetStateAction} from 'react';
 import s from "./Setting.module.css"
 import {Button} from "./Button";
-import b from './Button.module.css'
+import {Input} from "./Input";
 
-type SettingType = {
+type SettingsType = {
     maxValue: number
-    setMaxValue: Dispatch<SetStateAction<number>>
     minValue: number
+    setMaxValue: Dispatch<SetStateAction<number>>
     setMinValue: Dispatch<SetStateAction<number>>
-    saveState: <T>(key: string, state: T) => void
+    setCount: (count:number)=>void
+    error: string
 }
-export const Setting: React.FC<SettingType> = ({maxValue, setMaxValue, minValue, setMinValue, saveState}) => {
 
-    const setMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setMaxValue(+e.currentTarget.value)
+export const Setting = (props: SettingsType) => {
+
+
+    const maxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+        props.setMaxValue(+e.currentTarget.value)
+    }
+    const minOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+        props.setMinValue(+e.currentTarget.value)
     }
 
-    const setMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setMinValue(+e.currentTarget.value)
+    const callBackButton = () => {
+        props.setCount(props.minValue)
     }
 
     return (
         <div className={s.setting}>
             <div className={s.wrapper}>
-                <div className={s.textSetting}>
-                    <p className={s.pText}>max value:</p>
-                    <input
-                        value={maxValue}
-                        onChange={setMaxValueHandler}
-                        className={s.input}
-                        type="number"
-                    />
-                </div>
-                <div className={s.textSetting}>
-                    <p className={s.pText}>start value:</p>
-                    <input
-                        value={minValue}
-                        onChange={setMinValueHandler}
-                        className={s.input}
-                        type="number"
-                    />
-                </div>
+                <Input
+                    title={"max value:"}
+                    value={props.maxValue}
+                    onChange={maxOnChange}
+                    className={ props.error ? s.errorText : s.input}
+                />
+                <Input
+                    title={"start value:"}
+                    value={props.minValue}
+                    onChange={minOnChange}
+                    className={props.error ? s.errorText : s.input}
+                />
             </div>
             <div className={s.buttonWrapper}>
-                <Button styleButton={b.button}
-                        title={"set"}
-                        callBack={() => saveState('test', {maxValue: maxValue, minValue: minValue})}
-                />
+                <Button styleButton={s.setButton} title={"set"} callBack={callBackButton} disable={props.minValue < 0 || props.maxValue <= 0 }/>
             </div>
         </div>
     );

@@ -1,40 +1,39 @@
 import React, {Dispatch, SetStateAction} from 'react';
 import {Button} from "./Button";
-import s from './Button.module.css'
-import c from './Counter.module.css'
+import s from './Counter.module.css'
 
 type CounterType = {
-    state: { maxValue: number; minValue: number; }
-    currentValue: number
-    setCurrentValue: Dispatch<SetStateAction<number>>
-
+    counter: number
+    setCounter: Dispatch<SetStateAction<number>>
+    maxValue: number
+    minValue: number
+    error: string
 }
 
-const Counter:React.FC<CounterType> = ({state,currentValue,setCurrentValue}) => {
+export const Counter = (props: CounterType) => {
 
 
-
-    const inc = () => {
-        if (currentValue < state.maxValue) {
-            setCurrentValue(currentValue + 1)
-        }
+    const counterStyle = {
+        color: props.counter >= props.maxValue ? "red" : ""
     }
-    const reset = () => {
-        setCurrentValue(state.minValue)
+
+    const disableInc = props.counter >= props.maxValue
+    const disableReset = props.counter <= props.minValue
+
+    const IncButton = () => {
+        props.setCounter( props.counter + 1)
     }
-    const disableInc = () => currentValue >= state.maxValue
-    const disableReset = () => currentValue === state.minValue
+    const ResetButton = () => {
+        props.setCounter(props.minValue)
+    }
 
     return (
-        <div className={c.counter}>
-            <div className={c.number}><span className={currentValue === state.maxValue ? c.red : ''}>{currentValue}</span></div>
-            <div className={c.button_wrapper}>
-                <Button styleButton={s.button} disable={disableInc()}  callBack={inc} title={'inc'}/>
-                <Button styleButton={s.button} disable={disableReset()} callBack={reset} title={'reset'}/>
+        <div className={s.counter}>
+            <div style={counterStyle} className={s.counterStyle }>{props.error || props.counter}</div>
+            <div className={s.buttonWrapper}>
+                <Button styleButton={s.incButton} disable={disableInc} title="Inc" callBack={IncButton}/>
+                <Button styleButton={s.resetButton} disable={disableReset} title="Reset" callBack={ResetButton}/>
             </div>
-
         </div>
     );
 };
-
-export default Counter;

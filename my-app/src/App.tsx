@@ -1,38 +1,45 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import Counter from "./Counter";
 import {Setting} from "./Setting";
+import {Counter} from "./Counter";
 
 
 function App() {
-    let [maxValue, setMaxValue] = useState<number>(0)
-    let [minValue, setMinValue] = useState<number>(0)
-
-    function saveState<T>(key: string, state: T) {
-        const stateAsString = JSON.stringify(state)
-        localStorage.setItem(key, stateAsString)
-        setCurrentValue(minValue)
-    }
-
-    function restoreState<T>(key: string, defaultState: T) {
-        let state = defaultState
-        const stateAsString = localStorage.getItem(key)
-        if (stateAsString !== null) state = JSON.parse(stateAsString) as T
-        return state
-    }
-    const state = restoreState('test', {maxValue: 0, minValue: 0})
-
-    let [currentValue, setCurrentValue] = useState(state.minValue)
+    const [count, setCount] = useState<number>(0)
+    const [maxValue, setMaxValue] = useState<number>(5)
+    const [minValue, setMinValue] = useState<number>(0)
+    const [error, setError] = useState<string>("")
 
     useEffect(() => {
-
-        if (localStorage.getItem('test')) {
-            setMaxValue(JSON.parse(localStorage.getItem('test')!).maxValue)
-            setMinValue(JSON.parse(localStorage.getItem('test')!).minValue)
+        let startValueAsString = localStorage.getItem('minValue')
+        if (startValueAsString) {
+            setMinValue(JSON.parse(startValueAsString))
+            setCount(JSON.parse(startValueAsString))
         }
 
-    },[])
+        let maxValueAsString = localStorage.getItem('maxValue')
+        maxValueAsString && setMaxValue(JSON.parse(maxValueAsString))
+    }, [])
 
+    useEffect(() => {
+        localStorage.setItem('minValue', String(minValue))
+        localStorage.setItem('maxValue', String(maxValue))
+    }, [maxValue, minValue])
+
+
+    useEffect(() => {
+        if (maxValue === minValue) {
+            setError("max = min")
+        }
+        if (minValue > maxValue) {
+            setError("bla-bla")
+        }
+        if (maxValue <= 0) {
+            setError("incorrect")
+        } else {
+            setError("")
+        }
+    }, [maxValue, minValue])
 
 
     return (
@@ -42,13 +49,15 @@ function App() {
                 setMaxValue={setMaxValue}
                 minValue={minValue}
                 setMinValue={setMinValue}
-                saveState={saveState}
+                setCount={setCount}
+                error={error}
             />
             <Counter
-                state={state}
-                currentValue={currentValue}
-                setCurrentValue={setCurrentValue}
-
+                counter={count}
+                setCounter={setCount}
+                maxValue={maxValue}
+                minValue={minValue}
+                error={error}
             />
         </div>
     );
