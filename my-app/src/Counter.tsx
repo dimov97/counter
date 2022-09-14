@@ -13,13 +13,16 @@ type CounterType = {
 export const Counter = (props: CounterType) => {
 
 
-    const counterStyle = {
-        color: props.counter >= props.maxValue ? "red" : ""
-    }
+    // const counterStyle = {
+    //     color: props.counter >= props.maxValue ? "red" : ""
+    // }
 
-    const disableInc = props.counter >= props.maxValue
+    const disableInc = props.counter >= props.maxValue||props.maxValue===props.minValue||props.minValue>props.maxValue
     const disableReset = props.counter <= props.minValue
 
+    const counterMaxValue = {
+        color: props.counter === props.maxValue ? "red" : ""
+    }
     const IncButton = () => {
         props.setCounter( props.counter + 1)
     }
@@ -29,10 +32,12 @@ export const Counter = (props: CounterType) => {
 
     return (
         <div className={s.counter}>
-            <div style={counterStyle} className={s.counterStyle }>{props.error || props.counter}</div>
+            <div style={counterMaxValue} className={props.error===''?s.counterStyle:s.error }>
+                {props.error || props.counter}
+            </div>
             <div className={s.buttonWrapper}>
-                <Button styleButton={s.incButton} disable={disableInc} title="Inc" callBack={IncButton}/>
-                <Button styleButton={s.resetButton} disable={disableReset} title="Reset" callBack={ResetButton}/>
+                <Button styleButton={s.Button} disable={disableInc} title="Inc" callBack={IncButton}/>
+                <Button styleButton={s.Button} disable={disableReset} title="Reset" callBack={ResetButton}/>
             </div>
         </div>
     );

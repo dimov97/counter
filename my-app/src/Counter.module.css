@@ -18,6 +18,7 @@
     font-weight: 700;
     color: #8bddf9;
     width: 100%;
+    min-width: 329px;
 }
 
 .buttonWrapper{
@@ -28,20 +29,25 @@
     width: 100%;
 }
 
-.incButton{
+.Button{
     background-color: #8bddf9;
     border: none;
     border-radius: 5px;
     font-weight: 700;
     margin: 10px 20px;
-    text-transform: uppercase;
+    padding: 4px 25px;
+    cursor: pointer;
 }
-
-
-.resetButton{
-    background-color: #8bddf9;
-    border: none;
+.error {
+    text-align: center;
+    border: 2px solid #8bddf9;
     border-radius: 5px;
+    font-size: 40px;
     font-weight: 700;
-    margin: 10px 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    color: red;
+    padding: 18px 0;
 }

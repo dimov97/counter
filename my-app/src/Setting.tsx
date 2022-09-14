@@ -17,10 +17,14 @@ export const Setting = (props: SettingsType) => {
 
     const maxOnChange = (e: ChangeEvent<HTMLInputElement>) => {
         props.setMaxValue(+e.currentTarget.value)
+        localStorage.setItem('maxValue',e.currentTarget.value)
+
     }
     const minOnChange = (e: ChangeEvent<HTMLInputElement>) => {
         props.setMinValue(+e.currentTarget.value)
+        localStorage.setItem('minValue',e.currentTarget.value)
     }
+
 
     const callBackButton = () => {
         props.setCount(props.minValue)
@@ -34,6 +38,7 @@ export const Setting = (props: SettingsType) => {
                     value={props.maxValue}
                     onChange={maxOnChange}
                     className={ props.error ? s.errorText : s.input}
+
                 />
                 <Input
                     title={"start value:"}
@@ -43,7 +48,7 @@ export const Setting = (props: SettingsType) => {
                 />
             </div>
             <div className={s.buttonWrapper}>
-                <Button styleButton={s.setButton} title={"set"} callBack={callBackButton} disable={props.minValue < 0 || props.maxValue <= 0 }/>
+                <Button styleButton={s.Button} title={"Set"} callBack={callBackButton} disable={props.maxValue === props.minValue || props.minValue > props.maxValue || props.maxValue <= 0 || props.minValue < 0}/>
             </div>
         </div>
     );

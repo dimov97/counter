@@ -21,21 +21,15 @@ function App() {
         maxValueAsString && setMaxValue(JSON.parse(maxValueAsString))
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem('minValue', String(minValue))
-        localStorage.setItem('maxValue', String(maxValue))
-    }, [maxValue, minValue])
+    // useEffect(() => {
+    //     localStorage.setItem('minValue', String(minValue))
+    //     localStorage.setItem('maxValue', String(maxValue))
+    // }, [maxValue, minValue])
 
 
     useEffect(() => {
-        if (maxValue === minValue) {
-            setError("max = min")
-        }
-        if (minValue > maxValue) {
-            setError("bla-bla")
-        }
-        if (maxValue <= 0) {
-            setError("incorrect")
+        if (maxValue === minValue || minValue > maxValue || maxValue <= 0 || minValue < 0) {
+            setError("Incorrect value!")
         } else {
             setError("")
         }
@@ -45,6 +39,7 @@ function App() {
     return (
         <div className="App">
             <Setting
+
                 maxValue={maxValue}
                 setMaxValue={setMaxValue}
                 minValue={minValue}

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfad58a4-4bb2-4874-bec4-09c5c5b46e33" name="Changes" comment="complex counter">
-      <change afterPath="$PROJECT_DIR$/src/Input.tsx" afterDir="false" />
+    <list default="true" id="dfad58a4-4bb2-4874-bec4-09c5c5b46e33" name="Changes" comment="complex counter___v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button.module.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Counter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Counter.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Counter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Setting.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Setting.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Setting.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Setting.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +58,8 @@
       <workItem from="1662640362287" duration="99000" />
       <workItem from="1662642570393" duration="18303000" />
       <workItem from="1662736282982" duration="5421000" />
-      <workItem from="1662922016101" duration="1013000" />
+      <workItem from="1662922016101" duration="1337000" />
+      <workItem from="1663140345893" duration="9056000" />
     </task>
     <task id="LOCAL-00001" summary="logic">
       <created>1660376653797</created>
@@ -89,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662664522395</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="complex counter___v2">
+      <created>1662923313586</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662923313586</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,7 +118,8 @@
     <MESSAGE value="css" />
     <MESSAGE value="end counter" />
     <MESSAGE value="complex counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="complex counter" />
+    <MESSAGE value="complex counter___v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="complex counter___v2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
